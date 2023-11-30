@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+
+</head>
+<body>
+<div>
+<h2>All my Users</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Operations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${allUsers}">
+        <td th:text="${user.name}"/>
+        <td th:text="${user.surname}"/>
+        <td th:text="${user.email}"/>
+        <td><a th:href="'edit-user?id='+${user.id}">Edit</a></td>
+        <td><a th:href="'delete-user?id='+${user.id}">Delete</a></td>
+
+    </tr>
+    </tbody>
+</table>
+<p></p>
+<input type="button" value="Create User"
+       onclick="window.location.href = '/user-create'">
+
+</div>
+</body>
+</html>
