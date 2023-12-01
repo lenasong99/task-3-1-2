@@ -15,13 +15,16 @@ public class User {
 
     @Column(name = "surname")
     private String surname;
+    @Column(name = "salary")
+    private Integer salary;
 
     @Column(name = "email")
     private String email;
 
-    public User(String name, String surname, String email) {
+    public User(String name, String surname, Integer salary, String email) {
         this.name = name;
         this.surname = surname;
+        this.salary = salary;
         this.email = email;
     }
 
@@ -52,6 +55,14 @@ public class User {
         this.surname = surname;
     }
 
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -66,6 +77,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", salary=" + salary +
                 ", email='" + email + '\'' +
                 '}';
     }
